@@ -15,7 +15,7 @@ class ContactController extends Controller
         // $this->middleware('auth');
 
         //this auth for customize method
-        $this->middleware('auth')->except('index', 'edit');
+        // $this->middleware('auth')->except('index', 'edit');
     }
 
     /**
@@ -45,7 +45,7 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactFormRequest $request)
     {
         Contact::create($request->all());
         // $request->validate([

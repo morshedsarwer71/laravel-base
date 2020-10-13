@@ -1,5 +1,8 @@
 <?php
 
+use App\Notifications\Tasknotfication;
+use App\User;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // User::find(1)->notify(new Tasknotfication);
+    $users = User::find(1);
+    Notification::send($users, new Tasknotfication());
     return view('welcome');
 });
 // implement group middleware auth for resource route
